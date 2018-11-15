@@ -2,7 +2,7 @@
 
 (function() {
 	const url = "http://api.openweathermap.org/data/2.5/weather?q=";
-	const apiKey = "APIKEY"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
+	const apiKey = "9228d88b6deb368a5cfe5288cf52893b"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
 	const activities = {
 		teamIn: ['basketball','hockey','volleyball'],
 		teamOutWarm: ['softball/baseball','football/soccer','American football','rowing','tennis','volleyball','ultimate frisbee','rugby'],
@@ -63,8 +63,8 @@
 		const into = document.querySelector('.conditions');
 
 //		ReactDOM.render(<Forecast {...state} />, $into);
-		ReactDOM.render(<Forecast {...state} />, into);
-
+//		ReactDOM.render(<Forecast {...state} />, into);
+/*
 		function Forecast(props) {
 			return (
 				<div>
@@ -74,6 +74,11 @@
 			)
 		}
 
+		*/
+		let container = document.createElement('div')
+		let cityPara = document.createElement('p');
+		let conditionsPara = document.createElement('p');
+		let iconImage = document.createElement('img');
 		updateActivityList();
 	}
 
@@ -128,7 +133,8 @@
 		const into = document.querySelector('.activities');
 
 //		ReactDOM.render(<Activities {...state} />, $into);
-		ReactDOM.render(<Activities {...state} />, into);
+//
+/*		ReactDOM.render(<Activities {...state} />, into);
 
 		function Activities(props) {
 			const activitiesList = props.activities.map(function(activity, index) {
@@ -140,6 +146,16 @@
 				</div>
 			)
 		}
+	*/
+
+		let activitiesContainer = document.createElement('div');
+		let list = document.createElement('ul');
+		state.activities.forEach(function() {
+			let listItem = document.createElement('li');
+			
+		});
+		
+	
 
 		$('.results').slideDown(300);
 	}
