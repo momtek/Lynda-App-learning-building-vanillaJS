@@ -2,7 +2,7 @@
 
 (function() {
 	const url = "http://api.openweathermap.org/data/2.5/weather?q=";
-	const apiKey = "APIKEY"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
+	const apiKey = "9228d88b6deb368a5cfe5288cf52893b"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
 	const activities = {
 		teamIn: ['basketball','hockey','volleyball'],
 		teamOutWarm: ['softball/baseball','football/soccer','American football','rowing','tennis','volleyball','ultimate frisbee','rugby'],
@@ -85,6 +85,14 @@
 		let iconImage = document.createElement('img');
 		iconImage.setAttribute('src', state.icon);
 		iconImage.setAttribute('alt', state.condition);
+		conditionsPara.appendChild(iconImage);
+		container.appendChild(cityPara);
+		container.appendChild(conditionsPara);
+		if(document.querySelector('.conditions div')) {
+			into.replaceChild(container, document.querySelector('.conditions div'));
+		} else {
+			into.appendChild(container);
+		}
 
 		updateActivityList();
 	}
@@ -161,7 +169,14 @@
 			let listItem = document.createElement('li');
 			listItem.setAttribute('key', index);
 			listItem.textContent = activity;
+			list.appendChild(listItem);
 		});
+		activitiesContainer.appendChild(list);
+		if (document.querySelector('.activities div')) {
+				into.replaceChild(activitiesContainer, document.querySelector('.activities div'))
+		} else {
+				into.appendChild(activitiesContainer);
+		}
 
 		$('.results').slideDown(300);
 	}
