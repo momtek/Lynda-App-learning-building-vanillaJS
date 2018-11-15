@@ -2,7 +2,7 @@
 
 (function() {
 	const url = "http://api.openweathermap.org/data/2.5/weather?q=";
-	const apiKey = "APIKEY"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
+	const apiKey = "9228d88b6deb368a5cfe5288cf52893b"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
 	const activities = {
 		teamIn: ['basketball','hockey','volleyball'],
 		teamOutWarm: ['softball/baseball','football/soccer','American football','rowing','tennis','volleyball','ultimate frisbee','rugby'],
@@ -78,8 +78,13 @@
 
 		let container = document.createElement('div');
 		let cityPara = document.createElement('p');
+		cityPara.setAttribute('class', 'city');
+		cityPara.textContent = staate.city;
 		let conditionsPara = document.createElement('p');
+		conditionsPara.textContent = state.degCInt + '\u00B0 C / ' + state.degFInt + '\u00B0 F';
 		let iconImage = document.createElement('img');
+		iconImage.setAttribute('src', state.icon);
+		iconImage.setAttribute('alt',state.condition);
 
 		updateActivityList();
 	}
@@ -152,8 +157,10 @@
 
 		let activitiesContainer = document.createElement('div');
 		let list = document.createElement('ul');
-		state.activities.forEach(function() {
+		state.activities.forEach(function(activity, index) {
 			let listItem = document.createElement('li');
+			listItem.textContent = activity;
+			listItem.setAttribute('key', index);
 		});
 
 		$('.results').slideDown(300);
@@ -161,6 +168,7 @@
 
 	// handle ajax failure
 	function updateUIFailure() {
-		$(".conditions").text("Weather information unavailable");
+	//	$(".conditions").text("Weather information unavailable");
+			document.querySelector('.conditions').textContent = "Weather information unavailable";
 	}
 })();
