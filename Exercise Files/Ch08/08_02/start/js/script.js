@@ -2,7 +2,7 @@
 
 (function() {
 	const url = "http://api.openweathermap.org/data/2.5/weather?q=";
-	const apiKey = "APIKEY"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
+	const apiKey = "9228d88b6deb368a5cfe5288cf52893b"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
 	const activities = {
 		teamIn: ['basketball','hockey','volleyball'],
 		teamOutWarm: ['softball/baseball','football/soccer','American football','rowing','tennis','volleyball','ultimate frisbee','rugby'],
@@ -179,7 +179,8 @@
 			into.appendChild(activitiesContainer);
 		}
 
-		$('.results').slideDown(300);
+//	$('.results').slideDown(300);
+		document.querySelector('.results').classList.add('open');
 	}
 
 	// handle ajax failure
